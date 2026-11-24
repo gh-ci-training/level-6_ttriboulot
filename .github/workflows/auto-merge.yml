@@ -9,7 +9,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
-    if: ${{ github.actor == 'dependabot[bot]'}}
+    if: ${{ !github.event.repository.fork && github.actor == 'dependabot[bot]' }}
     steps:
       - name: Squash merge the Dependabot update
         run: |
